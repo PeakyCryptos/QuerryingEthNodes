@@ -1,15 +1,15 @@
 // create an express app
-const express = require("express")
+const express = require('express')
 const app = express()
 
 app.get('/', function (req, res) {
   app.use(express.static('./public/tokenTransferVolume'))
-  res.sendFile( __dirname + "/public/" + "tokenTransferVolume/tokenTransferVolume.html"); 
+  res.sendFile(__dirname + '/public/' + 'tokenTransferVolume/tokenTransferVolume.html')
 })
 
 app.get('/gas', function (req, res) {
-  app.use(express.static("./public/Gas"));
-  res.sendFile(__dirname + "/public/" + "Gas/Gas.html");
+  app.use(express.static('./public/Gas'))
+  res.sendFile(__dirname + '/public/' + 'Gas/Gas.html')
 })
 
 /*
@@ -30,4 +30,4 @@ app.get("/9", function (req, res) {
 */
 
 // start the server listening for requests
-app.listen(process.env.PORT || 5000) 
+app.listen(process.env.PORT || 5000)
