@@ -1,58 +1,79 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ERC20 Token Transfer Volume</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-      }
-      .chartMenu {
-        width: 100vw;
-        height: 40px;
-        background: #1A1A1A;
-        color: rgba(255, 26, 104, 1);
-      }
-      .chartMenu p {
-        padding: 10px;
-        font-size: 20px;
-      }
-      .chartCard {
-        width: 100vw;
-        height: calc(100vh - 40px);
-        background: rgba(255, 26, 104, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .chartBox {
-        width: 700px;
-        padding: 20px;
-        border-radius: 20px;
-        border: solid 3px rgba(255, 26, 104, 1);
-        background: white;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="chartMenu">
-      <p>ERC20 Token Transfer Volume (Transfer events)</p>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>ERC20 Token Transfer Volume</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+    .chartMenu p {
+      padding: 10px;
+      font-size: 20px;
+    }
+
+    .chartCard {
+      width: 100vw;
+      height: calc(100vh - 40px);
+      /* background: rgba(255, 26, 104, 0.2); */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chartBox {
+      width: 80%;
+      padding: 20px;
+      border-radius: 20px;
+      border: solid 3px rgba(255, 26, 104, 1);
+      background: white;
+    }
+
+    .buttonOutline {
+      border-style: 1px;
+      background-color: transparent;
+      border-color: rgba(255, 26, 104, 1);
+    }
+
+    .buttonOutline:hover {
+      color: whitesmoke !important;
+      border-color: rgba(255, 26, 104, 1) !important;
+      background-color: rgba(255, 26, 104, 1) !important;
+    }
+  </style>
+  <nav class="navbar bg-light">
+    <form class="container-fluid justify-content-end">
+      <a class="btn btn-sm buttonOutline me-2" role="button" href="#">ERC20 transfer volume</a>
+      <a class="btn btn-sm btn-outline-secondary" role="button" href="./gas">Ethereum gas report</a>
+    </form>
+  </nav>
+</head>
+<body>
+  <div class="chartMenu">
+  </div>
+  <div class="chartCard">
+    <div class="chartBox">
+      <canvas id="myChart"></canvas>
+      <span id="tokenName"></span>
+      <span id="tokenSymbol"></span>
+      <span id="tokenAddress"></span>
+      <br>
+      <input type="text" name="newContract" id="newContract">
+      <button id="btn">Change</button>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script type="text/javascript" src="bundleTTV.js"></script>
     </div>
-    <div class="chartCard">
-      <div class="chartBox">
-        <canvas id="myChart"></canvas>
-        <span id="tokenName"></span>
-        <span id="tokenSymbol"></span>
-        <span id="tokenAddress"></span>
-        <br>
-        <input type="text" name="newContract" id="newContract">
-        <button id="btn">Change</button>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script type="text/javascript" src="bundleTTV.js"></script>
-      </div>
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>

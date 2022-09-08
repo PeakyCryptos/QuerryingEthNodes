@@ -4,7 +4,7 @@ require("dotenv").config();
 const data = {
     labels: [],
     datasets: [{
-      label: 'Base Fee (wei)',
+      label: 'Base Fee (gwei)',
        data: [],
       backgroundColor: [
         'rgba(255, 26, 104, 0.2)',
@@ -41,7 +41,7 @@ const data = {
 // Setup: npm install alchemy-sdk
 const { Network, Alchemy } = require('alchemy-sdk');
 
-let baseFeePerBlock = {};
+//let baseFeePerBlock = {};
 let labels = [];
 let dataset = [];
 
@@ -57,19 +57,19 @@ const alchemy = new Alchemy(settings);
 const handleBlocks = (block) => {
     // current block
     const blockNumber = block.number;
-    const baseFeeWei = (block.baseFeePerGas).toString();
+    const baseFeeGwei = (block.baseFeePerGas / 1000000000).toString();
 
     // Append basefee to dict
     //baseFeePerBlock[blockNumber] = baseFeeWei;
     if (labels.length != 10) {
         labels.push(blockNumber);
-        dataset.push(baseFeeWei);
+        dataset.push(baseFeeGwei);
     } else {
         labels.shift()
         dataset.shift()
 
         labels.push(blockNumber);
-        dataset.push(baseFeeWei);
+        dataset.push(baseFeeGwei);
     }
     // push to dynamic chart
     updateChart();
